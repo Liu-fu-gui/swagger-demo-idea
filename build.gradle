@@ -1,0 +1,77 @@
+// 插件部分：定义项目所需的插件
+plugins {
+    // Spring Boot 插件，用于构建和运行 Spring Boot 应用
+    id 'org.springframework.boot' version '3.1.0'
+    // Spring 依赖管理插件，用于管理 Spring 相关依赖的版本
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    // Java 插件，用于编译和打包 Java 项目
+    id 'java'
+}
+
+// 项目基本信息
+group = 'org.example' // 项目组织名称
+version = '0.0.1-SNAPSHOT' // 项目版本
+sourceCompatibility = '17' // Java 版本，设置为 17
+
+// 配置部分
+configurations {
+    all {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+}
+
+// 仓库配置：指定依赖的下载来源
+repositories {
+    mavenCentral() // 使用 Maven 中央仓库下载依赖
+}
+
+// 依赖部分：定义项目所需的依赖
+dependencies {
+    // Spring Data JPA 支持，用于数据库操作
+     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Spring Security 支持，用于安全认证和授权
+    //implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // Thymeleaf 模板引擎支持，用于前端页面渲染
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    // Spring Web 支持，用于开发 Web 应用
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Thymeleaf 与 Spring Security 的集成支持
+    //implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5:3.0.4.RELEASE'
+
+    // Lombok 支持，用于简化代码（如自动生成 Getter/Setter）
+    compileOnly 'org.projectlombok:lombok'
+
+    // Spring Boot 开发工具支持，支持热部署
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    // MySQL 驱动
+    implementation 'com.mysql:mysql-connector-j'
+
+    // Lombok 注解处理器
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // Spring Boot 测试支持
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // Spring Security 测试支持
+    testImplementation 'org.springframework.security:spring-security-test'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
+
+// Log4j2 核心依赖
+    implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
+
+// Log4j2 的 SLF4J 适配器
+    implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.20.0'
+
+// 如果需要 JSON 日志输出
+    implementation 'org.apache.logging.log4j:log4j-layout-template-json:2.20.0'
+    implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+}
+
+// 测试配置：使用 JUnit 5 运行测试
+tasks.named('test') {
+    useJUnitPlatform()
+}

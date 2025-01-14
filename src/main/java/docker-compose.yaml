@@ -1,0 +1,24 @@
+version: '3.8'  # 可选，Docker Compose 版本
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql8
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: dev
+      MYSQL_USER: xiaoliu
+      MYSQL_PASSWORD: 123456
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - mysql_network
+    command: --bind-address=0.0.0.0
+
+volumes:
+  mysql_data:  # 定义持久化卷 mysql_data
+
+networks:
+  mysql_network:  # 定义网络 mysql_network
