@@ -15,9 +15,6 @@ sourceCompatibility = '17' // Java 版本，设置为 17
 
 // 配置部分
 configurations {
-    all {
-        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
-    }
 }
 
 // 仓库配置：指定依赖的下载来源
