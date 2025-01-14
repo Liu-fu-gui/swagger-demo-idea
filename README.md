@@ -141,6 +141,9 @@ UserRepository 继承 JpaRepository，提供了基本的 CRUD 操作。
 
 # 4. 效果图
 访问地址：http://localhost:8080/
+
 ![20250114103240](https://liu-fu-gui.github.io/myimg/halo/20250114103240.png)
+
 访问地址：http://localhost:8080/swagger-ui/index.html#/
+
 ![20250114102853](https://liu-fu-gui.github.io/myimg/halo/20250114102853.png)
